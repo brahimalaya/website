@@ -1,0 +1,7 @@
+NGE is a key actor of the multiplexed automotive systems in China. Created by automobile experts, NGE aims to establish in China the expertise and professionalism developed in Europe in the field of multiplexed systems.
+NGE’s clients include major European automobile manufacturers and suppliers (PSA Peugeot Citroen, Thales, ...) and also several automotive leaders in China (Hongsheng, Desay,...)
+
+ 	The scope of our expertise
+		-> Communication protocols: CAN, VAN, LIN, ISO-9141, FLEXRAY, MOST…
+		-> Communication application standard: OSEK, DIAG on CAN, KWP2000, AUTOSAR, CANOPEN, TTCAN, J1939, …
+		

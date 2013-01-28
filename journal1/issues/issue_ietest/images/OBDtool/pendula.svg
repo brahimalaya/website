@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.0" onload="init()" viewBox="0 0 300 200">
+<script>
+  function init () {
+  // ne fait rien pour le moment :)
+  }
+  
+  function stop () {
+   document.documentElement.pauseAnimations();
+  }
+
+  function start () {
+   document.documentElement.unpauseAnimations();
+  }
+
+</script>
+<desc>
+  The pendulum code was taken from http://www.treebuilder.de/xul/svg2apng/pendel.svg. The pauseAnimations method is documented in the SVG 1.1 spec: http://www.w3.org/TR/SVG/struct.html#__svg__SVGSVGElement__pauseAnimations
+ </desc>
+<g>
+<line x1="100" y1="0" x2="100" y2="90" stroke="black"/>
+<circle cx="100" cy="90" r="10"/>
+<animateTransform attributeName="transform" type="rotate" values="0,100,0;70,100,0;0,100,0;-70,100,0;0,100,0" keySplines="0,0.5,0.5,1;0.5,0,1,0.5;0,0.5,0.5,1;0.5,0,1,0.5" calcMode="spline" begin="0s" dur="4s" repeatCount="indefinite"/>
+</g>
+
+<g onclick="stop()" transform="translate(150 0)">
+<rect width="50" height="30" rx="10" stroke="black" fill-opacity="0.2"/>
+<text id="t" style="font:16px Arial Black;fill:white;stroke:black" transform="translate(5 20)">STOP</text>
+</g>
+
+<g onclick="start()" transform="translate(5 0)">
+<rect width="50" height="30" rx="10" stroke="black" fill-opacity="0.2"/>
+<text id="t" style="font:16px Arial Black;fill:white;stroke:black" transform="translate(2 20)">START</text>
+</g>
+
+
+</svg>

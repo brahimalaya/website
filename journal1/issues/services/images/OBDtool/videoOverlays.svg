@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="videoOverlays_fichiers/style.css" type="text/css"?>
+<!-- ======================================================================= -->
+<!-- Erik Dahlström                                                         -->
+<!-- License terms: see svg-wow.org                                          -->
+<!-- CC0 http://creativecommons.org/publicdomain/zero/1.0/                   -->
+<!-- ======================================================================= -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700 512">
+  <defs>
+    <script xlink:href="videoOverlays_fichiers/utils.js"/>
+    <linearGradient id="overlaygrad" x2="1" y1="-0.03">
+      <stop offset="0%" stop-color="#5f070e"/>
+      <stop offset="70%" stop-color="#ff2700"/>
+      <stop offset="85%" stop-color="#ff2700" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ff2700" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="ds1" height="1.3">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="2" dy="2"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+    <filter id="ds2" height="1.3" width="1.3">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="2" dy="2"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+  
+  <text x="50%" y="300" text-anchor="middle">This browser probably doesn't support the svg video element.
+  <a xlink:href="http://www.archive.org/details/the_big_bad_wolf"><tspan x="50%" dy="1.5em">Click here to download video.</tspan></a>
+  </text>
+  <video id="video" xlink:href="../res/2.0/videos/the_big_bad_wolf.ogv" height="512" width="700" begin="0s" viewport-fill="black">
+    <set attributeName="display" to="none" begin="video.end"/>
+  </video>
+  <g id="overlay" opacity="0">
+    <rect id="figure-rect" x="-20" y="380" height="120" width="75%" fill="url(#overlaygrad)"/>
+    <image xlink:href="videoOverlays_fichiers/media.svg" width="32" height="32" x="20" y="400" filter="url(#ds2)"/>
+    <textArea id="subheader" x="23" y="440" width="420">Little Boy Blue and Scarecrow sing and dance, Little Bo Peep and her sheep join in.</textArea>
+    <text id="header" x="60" y="430">The Big Bad Wolf</text>
+    <animate attributeName="opacity" to="1" dur="1s" fill="freeze"/>
+    <animate id="master" attributeName="opacity" to="0" dur="1s" begin="video.begin+10s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" to="-500 0" dur="3s" begin="master.begin" fill="freeze"/>
+  </g>
+  <g id="controls" transform="translate(550 420)">
+    <rect fill-opacity="0.7" rx="10" width="86" height="46"/>
+    <circle id="play" fill="white" r="20" cx="22" cy="23" onclick="$('video').resumeElement()"/>
+    <circle id="pause" fill="white" r="20" cx="64" cy="23" onclick="$('video').pauseElement()"/>
+    <image xlink:href="videoOverlays_fichiers/pause.svg" x="40" width="48" height="48" pointer-events="none"/>
+    <image xlink:href="videoOverlays_fichiers/play.svg" y="6" width="48" height="35" pointer-events="none"/>
+  </g>
+</svg>

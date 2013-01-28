@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:svg="http://www.w3.org/2000/svg">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="all" />
+<title>NGE - New Global Electronics</title>
+<link href="css/dcmegamenu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-latest.js"></script>
+<script type='text/javascript' src='js/jquery.hoverIntent.minified.js'></script>
+<script type='text/javascript' src='js/jquery.dcmegamenu.1.3.3.js'></script>
+<script type="text/javascript">
+$(document).ready(function($){
+	$('#mega-menu-1').dcMegaMenu({
+		rowItems: '3',
+		speed: 0,
+		effect: 'slide',
+		event: 'click',
+		fullWidth: true
+	});
+	$('#mega-menu-2').dcMegaMenu({
+		rowItems: '1',
+		speed: 'fast',
+		effect: 'fade',
+		event: 'click'
+	});
+	$('#mega-menu-3').dcMegaMenu({
+		rowItems: '2',
+		speed: 'fast',
+		effect: 'fade'
+	});
+	$('#mega-menu-4').dcMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'fade'
+	});
+	$('#mega-menu-5').dcMegaMenu({
+		rowItems: '4',
+		speed: 'fast',
+		effect: 'fade'
+	});
+	$('#mega-menu-6').dcMegaMenu({
+		rowItems: '3',
+		speed: 'slow',
+		effect: 'slide',
+		event: 'click',
+		fullWidth: true
+	});
+	$('#mega-menu-7').dcMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'slide'
+	});
+	$('#mega-menu-8').dcMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'fade'
+	});
+	$('#mega-menu-9').dcMegaMenu({
+		rowItems: '3',
+		speed: 'fast',
+		effect: 'fade'
+	});
+});
+</script>
+<script id='fucntion' type='text/javascript'>
+			function updateMagaka(mag,horz,vert){
+				$("iframe").css({'visibility':'hidden'});
+				$('#'+mag).css({'visibility':'visible'});
+				$("div[class=ifra]").css({'z-index': '0'});
+				$("#div_"+mag).css({'z-index': '1000'});
+				if (mag!="home") {
+					var iframe = document.getElementById(mag);
+					//var e = iframe.contentDocument.createEvent('HTMLEvents');
+					//e.initEvent('magaka1', true, false);
+					//iframe.contentDocument.dispatchEvent(e);
+					var evt = iframe.contentDocument.createEvent("CustomEvent");
+					evt.initCustomEvent('magaka1', true, true, horz +";"+ vert);
+					iframe.contentDocument.dispatchEvent(evt);
+				}
+				else ("#home").src="CircularContentCarousel/index.html";
+			}
+</script>
+<script>
+	$(document).ready(function(){
+		function newPos(position){
+			/*document.addEventListener("parent1",function(a){
+											var iframe = document.getElementById("iframe1");
+											var e = iframe.contentDocument.createEvent('HTMLEvents');
+											e.initEvent('magaka1', true, true);
+											iframe.contentDocument.dispatchEvent(e);
+										},false);*/
+				var home = document.getElementById("iframe1");
+				var product = document.getElementById("iframe2");
+				var service = document.getElementById("iframe3");
+				var sale = document.getElementById("iframe4");
+				var about = document.getElementById("iframe5");
+				var support = document.getElementById("iframe6");
+				var params = position.split("&");
+				pos= new Object();
+				pos.mag=params[0].split("=")[1];
+				pos.horz=params[1].split("=")[1];
+				pos.vert=params[2].split("=")[1];
+				updateMagaka(pos.mag,pos.horz,pos.vert);
+				}
+var position;
+	$('a').click(function(e){
+		e.preventDefault();
+		//$('#iframe1').attr("src", $(this).attr('href'));
+		position=$(this).attr('href').toString();
+		newPos(position);
+	});
+	
+	
+});
+</script>
+<link href="css/skins/black.css" rel="stylesheet" type="text/css" />
+<link href="css/skins/grey.css" rel="stylesheet" type="text/css" />
+<link href="css/skins/blue.css" rel="stylesheet" type="text/css" />
+<link href="css/skins/green.css" rel="stylesheet" type="text/css" />
+<link href="css/skins/light_blue.css" rel="stylesheet" type="text/css" />
+<link href="css/skins/orange.css" rel="stylesheet" type="text/css" />
+<link href="css/skins/red.css" rel="stylesheet" type="text/css" />
+<link href="css/skins/white.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+			span.reference{
+				position:fixed;
+				left:0px;
+				bottom:0px;
+				background:#000;
+				width:100%;
+				font-size:10px;
+				line-height:20px;
+				text-align:right;
+				height:20px;
+				-moz-box-shadow:-1px 0px 10px #000;
+				-webkit-box-shadow:-1px 0px 10px #000;
+				box-shadow:-1px 0px 10px #000;
+			}
+			span.reference a{
+				color:#aaa;
+				text-transform:uppercase;
+				text-decoration:none;
+				margin-right:10px;
+				
+			}
+			span.reference a:hover{
+				color:#ddd;
+			}
+			.bg_img img{
+				width:100%;
+				position:fixed;
+				top:0px;
+				left:0px;
+				z-index:-1;
+			}
+			h1{
+				font-size:55px;
+				text-align:right;
+				position:absolute;
+				right:100px;
+				top:10px;
+				color:#0096ff;
+				font-weight:normal;
+				/*text-shadow:  0 0 3px #0096ff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0096ff, 0 0 70px #0096ff, 0 0 80px #0096ff, 0 0 100px #0096ff, 0 0 150px #0096ff;
+				filter: glow(strength=50 color=#0096ff),
+				blur(strength=30 direction=45),
+				alpha(opacity=90);*/
+			}
+			h1 span{
+				display:block;
+				font-size:15px;
+				font-weight:bold;
+			}
+			h2{
+				position:absolute;
+				top:220px;
+				left:50px;
+				font-size:40px;
+				font-weight:normal;
+				/*text-shadow:  0 0 3px #f6ff00, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #f6ff00, 0 0 70px #f6ff00, 0 0 80px #f6ff00, 0 0 100px #f6ff00, 0 0 150px #f6ff00;
+*/}
+		</style>
+
+</head>
+<body>
+<div style="position:relative; margin-top:0px; float:top; width:100%; height:100%; background-color:#fff;">
+<div style="position:relative; margin-top:0px; float:top; width:100%; height:180px; background-color:#fff;">
+	<div STYLE="position:relative;margin:0px;left:25px;top: 0px; width:20%; height:160px; float:left">
+		<embed height="300" width="100%" type="image/svg+xml" src="OverlayEffectMenu/images/LogoNGE_v4.svg"></embed>
+	</div>
+<div style="position:relative; float:right; width:80%; height:100%; background-color:#fff;">
+	<div style="position:relative; float:right; width:100%; height:55%; background-color:#fff;">
+		<h1>New Global Electronics<span>Embedded systems solutions</span></h1>
+	</div>
+<div style="position:relative; margin-top:0px; float:left; width:95%; height:35%; background-color:#fff; z-index: 2000;">
+<div class="demo-container">
+<div class="white">
+<ul id="mega-menu-8" class="mega-menu">
+	<li><a href="mag=home&horz=null&vert=null">Home</a></li>
+	<li><a href="mag=products&horz=0&vert=0">Products</a>
+		<ul>
+			<li><a href="mag=products&horz=2&vert=0">Diagnostic</a>
+				<ul>
+					<li><a href="mag=products&horz=1&vert=1">Universal OBD</a></li>
+					<li><a href="mag=products&horz=1&vert=2">Classic OBD</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><a href="mag=services&horz=0&vert=0">Services</a>
+<ul>
+	<li><a href="mag=services&horz=1&vert=0">Validation</a>
+	<ul>
+		<li><a href="mag=services&horz=1&vert=1">Network CAN/LIN</a></li>
+		<li><a href="mag=services&horz=1&vert=2">Hardware</a></li>
+	</ul>
+</li>
+<li><a href="mag=services&horz=2&vert=0">Training</a>
+	<ul>
+		<li><a href="mag=services&horz=2&vert=1">Circuit design</a></li>
+		<li><a href="mag=services&horz=2&vert=2">Network CAN/LIN</a></li>
+	</ul>
+</li>
+	<li><a href="mag=services&horz=3&vert=0">Consulting</a>
+	<ul>
+		<li><a href="#">Service Detail D</a></li>
+		<li><a href="#">Service Detail E</a></li>
+	</ul>
+</li>
+	<li><a href="mag=services&horz=4&vert=0">Design House</a>
+	<ul>
+		<li><a href="mag=services&horz=4&vert=1">Circuit design</a></li>
+		<li><a href="mag=services&horz=4&vert=2">PCB design</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+
+<li><a href="mag=contact&horz=0&vert=0">About Us</a>
+<ul>
+	<li><a href="mag=contact&horz=0&vert=0">History</a></li>
+	<li><a href="mag=contact&horz=1&vert=0">Results</a></li>
+	<li><a href="mag=contact&horz=1&vert=0">Contact us</a></li>
+</ul>
+</li>
+
+<div style="position: relative; float: right;">
+<li><a href="support.html">Forum</a>
+</li>
+</div>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="div_home" class="ifra" style="position: absolute;  float:top; height: 525px; width: 100%; z-index: 1000;" >
+	<iframe id="home" src="models3d\js3D_test.html" height="100%" width="100%" style="visibility:visible"></iframe>
+</div>
+<div id="div_products" class="ifra" style="position: absolute;  float:top; height: 525px; width: 99.5%; z-index: 0;" >
+	<iframe id="products" src=".\kesiev-magaka-818b08a\index products.html?sect=0&horz=0&vert=0" height="99.5%" width="99.5%" style="visibility:hidden"></iframe>
+</div>
+<div id="div_services" class="ifra" style="position: absolute;  float:top; height: 525px; width: 99.5%; z-index: 0;" >
+	<iframe id="services" src=".\kesiev-magaka-818b08a\index services.html?sect=0&horz=0&vert=0" height="99.5%" width="99.5%" style="visibility:hidden"></iframe>
+</div>
+<div id="div_sales" class="ifra" style="position: absolute;  float:top; height: 525px; width: 99.5%; z-index: 0;" >
+	<iframe id="sales" src=".\kesiev-magaka-818b08a\index sales.html?sect=0&horz=0&vert=0" height="99.5%" width="99.5%" style="visibility:hidden"></iframe>
+</div>
+<div id="div_contact" class="ifra" style="position: absolute;  float:top; height: 1280px; width: 99.5%; z-index: 0;" >
+	<iframe id="contact" src=".\kesiev-magaka-818b08a\index contact.html?sect=0&horz=0&vert=0" height="100%" width="99.5%" style="visibility:hidden"></iframe>
+</div>
+<div id="div_support" class="ifra" style="position: absolute;  float:top; height: 525px; width: 99.5%; z-index: 0;" >
+	<iframe id="support" src=".\kesiev-magaka-818b08a\test.html?sect=0&horz=0&vert=0" height="99.5%" width="99.5%" style="float:top; visibility:hidden"></iframe>
+</div>
+</div>
+</body>
+</html>
+

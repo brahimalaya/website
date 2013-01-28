@@ -1,0 +1,6 @@
+@BRHTML:article
+Contact Us <br> Adress<br> 98, Jianpeng Road
+ Jiuting Town, Songjiang District<br> Shanghai, China<br>
+ <br> Phone:<br> 021-57637906<br>
+ <br> Fax: 021-57637902<br>
+ <br> E-mail:<br> contact@nge-automotive.com

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML >
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<link rel="stylesheet" type="text/css" href="libs/browse.css" />
+	<script src="jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function () {
+				document.addEventListener('magaka1',function(evt)
+				{
+						pos2 = new Object();
+						pos2.horz = evt.detail.split(";")[0];
+						pos2.vert = evt.detail.split(";")[1];
+						for (var i=pos2.horz-browse._current.horizontal;i>0;i--) {
+							browse.__switchtonext();
+						};
+						for (var i=pos2.horz-browse._current.horizontal;i<0;i++) {
+							browse.__switchtoprevious();
+						};	
+						for (var j=pos2.vert-browse._current.vertical;j>0;j--) {
+							browse.__switchtolower();
+						};
+						for (var j=pos2.vert-browse._current.vertical;j<0;j++) {
+							browse.__switchtoupper();
+						};
+				},false);
+			});
+	</script>
+	<script type="text/javascript">
+		function require(script) {
+			alert ("call require "+script);
+			$.ajax({
+				url: script,
+				dataType: "script",
+				async: false,           // <-- this is the key
+				success: function () {
+					// all good...
+				},
+				error: function () {
+					throw new Error("Could not load script " + script);
+				}
+			});
+		}
+	</script>
+	<script type="text/javascript">
+		var url = window.location.toString();
+		var query_string = url.split("?");
+		var params = query_string[1].split("&");
+		pos = new Object();
+		pos.mag=params[0].split("=")[1];
+		pos.sect=params[1].split("=")[1];
+		pos.horz=params[2].split("=")[1];
+		pos.vert=params[3].split("=")[1];
+		alert ("pos.mag "+pos.mag);
+		//require("src="issues/' + pos.mag + '/issue.js?v=1");
+		//$("head").append('<script type="text/javascript" src="issues/' + pos.mag + '/issue.js?v=1"></script>');
+	</script>
+	<script type="text/javascript" src="libs/browse.js"></script>
+	<style type="text/css">
+		span.page_row_1 {
+			font-weight: normal; color: black; text-decoration: none;
+		}
+		span.page_row_2 {
+			font-weight: normal; color: black; text-decoration: none;
+		}
+		span.page_row_3 {
+			font-weight: normal; color: black; text-decoration: none;
+		}
+		span.page_row_4 {
+			font-weight: normal; color: black; text-decoration: none;
+		}
+	</style>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</head>
+<body id="monbody">
+<div id="screen" style="width:100%;height:100%;position:relative;background-color:#a0a0a0"></div>
+	<script type="text/javascript">
+		browse.init("screen","issues/"+pos.mag);
+	</script>
+	
+</body>
+</html>

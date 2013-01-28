@@ -1,0 +1,25 @@
+/*****
+*
+* $Id: examples.css 756 2009-07-29 09:58:13Z klaus $
+*
+*****/
+
+#iframe {
+    float:left;
+    border-right:1px dashed black;
+    padding-right:10px;
+}
+#iframe iframe {
+    border: 1px solid gray;
+    margin-bottom:5px;
+}
+#iframe p {
+    margin:0px;
+    padding-bottom:5px;
+}
+#howto {
+    margin-left:330px;
+}
+hr {
+    clear:both;
+}
